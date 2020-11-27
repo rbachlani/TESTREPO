@@ -7,6 +7,16 @@ class Login:
     selectTestLesson1="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView"
     selectTestLesson2 = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView"
     btn_gobacktoModuleDetail="com.km.emotika:id/ivback"
+    btn_startlesson="com.km.emotika:id/tvStartLesson"
+    btn_SelectContenttype1option = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.CheckBox[2]"
+    btn_next="com.km.emotika:id/tvNext"
+    btn_selectRelativeLayout = "com.km.emotika:id/mainRelativeLayout"
+    btn_SelectContenttype2option = " /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.CheckBox[2]"
+    btn_SelectContenttype3option = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.CheckBox[3]"
+
+    btn_CompleteLesson="com.km.emotika:id/tvComplete"
+    btn_gobackHome="com.km.emotika:id/llGoBackHome"
+    btn_CompleteModule="com.km.emotika:id/tvBtnText"
     btn_profile="com.km.emotika:id/rbProfile"
     btn_settings="com.km.emotika:id/ivSetting"
     btn_logout="com.km.emotika:id/tvLogout"
@@ -47,11 +57,38 @@ class Login:
     def clickLesson1(self):
         self.driver.find_element_by_xpath(self.selectTestLesson1).click()
 
+    def clickStartLesson(self):
+        self.driver.find_element_by_id(self.btn_startlesson).click()
+
+    def SelectContentType1(self):
+        self.driver.find_element_by_xpath(self.btn_SelectContenttype1option).click()
+
+    def clickNext(self):
+        self.driver.find_element_by_id(self.btn_next).click()
+
+    def clickRelativeLayout(self):
+        self.driver.find_element_by_id(self.btn_selectRelativeLayout).click()
+
+    def SelectContentType2(self):
+        self.driver.find_element_by_xpath(self.btn_SelectContenttype2option).click()
+
+    def SelectContentType3(self):
+        self.driver.find_element_by_xpath(self.btn_SelectContenttype3option).click()
+
+    def clickCompleteLesson(self):
+        self.driver.find_element_by_id(self.btn_CompleteLesson).click()
+
+    def clickCompleteModule(self):
+        self.driver.find_element_by_id(self.btn_CompleteModule).click()
+
+    def clickPointsConfirmation(self):
+        self.driver.find_element_by_id(self.btn_gobackHome).click()
+
     def clickLesson2(self):
         self.driver.find_element_by_xpath(self.selectTestLesson2).click()
 
     def clickBack(self):
-        self.driver.find_element_by_xpath(self.btn_gobacktoModuleDetail).click()
+        self.driver.find_element_by_id(self.btn_gobacktoModuleDetail).click()
 
     def clickProfile(self):
         self.driver.find_element_by_id(self.btn_profile).click()

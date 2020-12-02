@@ -1,4 +1,5 @@
 from appium import webdriver
+# from selenium import webdriver
 import pytest
 
 desired_cap = {
@@ -12,4 +13,9 @@ def setup():
     driver.implicitly_wait(30)
     return driver
 
-
+# #
+# @pytest.fixture()
+# def setupChrome():
+#     driver2 = webdriver.Chrome()
+#     driver2.implicitly_wait(30)
+#     return driver2

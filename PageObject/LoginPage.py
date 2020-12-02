@@ -1,6 +1,7 @@
 
 class Login:
     txt_signin_username="com.km.emotika:id/etEmailAddress"
+    # txt_signin_username = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.EditText"
     txt_signin_password="com.km.emotika:id/etPassword"
     btn_signIn="com.km.emotika:id/btnLogin"
     selectTestModule="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView[1]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView"
@@ -39,7 +40,7 @@ class Login:
 
 
     def __init__(self,driver):
-        self.driver=driver
+        self.driver = driver
 
 
     def clickSkip(self):

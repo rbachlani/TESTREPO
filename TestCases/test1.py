@@ -1,11 +1,15 @@
-from appium import webdriver
+# from appium import webdriver
+# from selenium import webdriver
 from Utilities.readProperties import readConfig
+import time
 import random
 from Utilities.customeLogger import LogGen
 from PageObject.LoginPage import Login
+from PageObject.ActivationPage import Activation
 
 
 class Test_001_Login:
+    txtemailaddress="sophia1@mailinator.com"
     # serverurl = readConfig.getServerurl()
     # emailaddress = readConfig.getEmailaddress()
     # firstname = readConfig.getFirstname()
@@ -19,9 +23,16 @@ class Test_001_Login:
         self.logger.info("********Test case1**********")
         self.logger.info("********verify Sign**********")
         self.driver = setup
+        # self.driver2 = setupChrome
         self.lp = Login(self.driver)
+        self.Ap = Activation(self.driver)
+        newvar = self.Ap.setupChrome()
+        newvar.get("https://www.mailinator.com/")
+        newvar.find_element_by_xpath("//input[@id='addOverlay']").send_keys("abcd")
         self.lp.clickSkip()
-        self.lp.setSignInEmailaddress("sophia1@mailinator.com")
+        self.logger.info("text1")
+        time.sleep(5)
+        self.lp.setSignInEmailaddress(self.txtemailaddress)
         self.lp.setSignInPassword("Admin@1234")
         self.lp.clickSignIn()
         self.lp.clickTestModule()

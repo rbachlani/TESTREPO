@@ -1,22 +1,14 @@
-# from appium import webdriver
-# from selenium import webdriver
+
 from Utilities.readProperties import readConfig
-import time
 import random
 from Utilities.customeLogger import LogGen
 from PageObject.LoginPage import Login
 from PageObject.ActivationPage import Activation
+import time
 
 
 class Test_001_Login:
     txtemailaddress="sophia1@mailinator.com"
-    # serverurl = readConfig.getServerurl()
-    # emailaddress = readConfig.getEmailaddress()
-    # firstname = readConfig.getFirstname()
-    # lastname = readConfig.getLastname()
-    # password = readConfig.getPassword()
-    # confirmpassword = readConfig.getConfirmpassword()
-
     logger = LogGen.loggen()
 
     def test_case1(self, setup):
@@ -25,13 +17,16 @@ class Test_001_Login:
         self.driver = setup
         # self.driver2 = setupChrome
         self.lp = Login(self.driver)
+        Activation.setupChrome(self).get("https://www.mailinator.com/")
         self.Ap = Activation(self.driver)
-        newvar = self.Ap.setupChrome()
-        newvar.get("https://www.mailinator.com/")
-        newvar.find_element_by_xpath("//input[@id='addOverlay']").send_keys("abcd")
-        self.lp.clickSkip()
-        self.logger.info("text1")
+        self.Ap.SetEmailID("automator257@mailinator.com")
+        self.Ap.openMailBox()
+        self.Ap.clickOnFirstEmail()
         time.sleep(5)
+        self.Ap.clickActivate()
+        #dd=self.Ap.find_element_by_xpath("//body[1]/table[1]/tbody[1]/tr[2]/td[1]/table[1]/tbody[1]/tr[3]/td[1]")
+        print("hihihi")
+        self.lp.clickSkip()
         self.lp.setSignInEmailaddress(self.txtemailaddress)
         self.lp.setSignInPassword("Admin@1234")
         self.lp.clickSignIn()

@@ -18,6 +18,7 @@ class Login:
     btn_CompleteLesson="com.km.emotika:id/tvComplete"
     btn_gobackHome="com.km.emotika:id/llGoBackHome"
     btn_CompleteModule="com.km.emotika:id/tvBtnText"
+    btn_PointsConfirmation="com.km.emotika:id/tvBtnText"
     btn_profile="com.km.emotika:id/rbProfile"
     btn_settings="com.km.emotika:id/ivSetting"
     btn_logout="com.km.emotika:id/tvLogout"
@@ -145,3 +146,6 @@ class Login:
 
     def clickRegisOK(self):
         self.driver.find_element_by_id(self.button_registok_id).click()
+
+    def ConfirmPoints(self):
+        self.driver.find_element_by_id(self.btn_PointsConfirmation).click()

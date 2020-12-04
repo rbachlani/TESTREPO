@@ -37,16 +37,8 @@ class Activation:
         self.driver.find_element_by_css_selector(self.btn_SelectFirstEmail).click()
 
     def clickActivate(self):
-
-        # self.driver.find_element_by_xpath("//button[contains(text(),'Show Links')]").click()
-        # test = self.driver.find_elements_by_xpath("//tbody/tr[3]/td[1]/a[1]")
-        self.driver.switch_to_frame(self.driver.find_element_by_css_selector("table.main-table:nth-child(1) tbody:nth-child(1) tr:nth-child(3) td:nth-child(1) a:nth-child(1) > button:nth-child(1)"))
-        self.driver.find_element_by_css_selector("table.main-table:nth-child(1) tbody:nth-child(1) tr:nth-child(3) td:nth-child(1) a:nth-child(1) > button:nth-child(1)").click()
-        # for tes in test:
-        #     tess=tes.get_attribute('href')
-        #     self.dd.append(tess)
-        # print(self.dd)
-        assert True
-        #self.driver.find_element_by_xpath("//button[contains(text(),'Patvirtinkite El. pašto adresą')]").click()
-
-
+        self.driver.maximize_window()
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        iframe = self.driver.find_element_by_name('msg_body')
+        self.driver.switch_to.frame(iframe)
+        self.driver.find_element_by_css_selector(self.btn_Activate).click()

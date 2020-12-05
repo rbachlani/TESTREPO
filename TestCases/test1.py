@@ -54,8 +54,10 @@ class Test_001_Login:
         self.lp.clickCheckboxterm()
         self.lp.clickSignupregister()
         self.lp.clickRegisOK()
+
         Activation.setupChrome(self).get("https://www.mailinator.com/")
         self.Ap = Activation(self.driver)
+
         self.Ap.SetEmailID(username + "@mailinator.com")
         self.Ap.openMailBox()
         self.Ap.clickOnFirstEmail()

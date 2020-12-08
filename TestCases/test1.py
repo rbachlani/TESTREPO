@@ -2,6 +2,7 @@ from Utilities.readProperties import readConfig
 import random
 from Utilities.customeLogger import LogGen
 from PageObject.LoginPage import Login
+from PageObject.BuyModule import BuyMode
 from PageObject.ActivationPage import Activation
 import time
 
@@ -71,3 +72,10 @@ class Test_001_Login:
         self.lp.clickSettings()
         self.lp.clickLogout()
         self.lp.clickConfirmLogout()
+
+    def test_case2(self, setup):
+        self.logger.info("********Test case1**********")
+        self.logger.info("********verify Sign**********")
+        self.driver = setup
+
+        self.Bm = BuyMode(self.driver)

@@ -1,6 +1,6 @@
-from appium import webdriver
 # from selenium import webdriver
 import pytest
+from appium import webdriver
 
 desired_cap = {
     "platformName": "Android",

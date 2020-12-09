@@ -17,7 +17,8 @@ class BuyMode:
     btn_PlaceOrder="com.km.emotika:id/tvPlaceOrder"
     btn_BadgeOk="com.km.emotika:id/tvBtnText"
     btn_PointsOk="com.km.emotika:id/tvBtnText"
-
+    btn_ViewRecommended="com.km.emotika:id/tvRecommendedSeeAll"
+    btn_moduleselection="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.TextView"
 
     def __init__(self,driver):
         self.driver = driver
@@ -66,3 +67,21 @@ class BuyMode:
     def setCity(self, City):
         self.driver.find_element_by_id(self.txt_City).clear()
         self.driver.find_element_by_id(self.txt_City).send_keys(City)
+
+    def selectModule(self):
+        self.driver.find_element_by_xpath(self.btn_moduleselection).click()
+
+    def ViewRecommended(self):
+        self.driver.find_element_by_id(self.btn_ViewRecommended).click()
+
+    def clickNext(self):
+        self.driver.find_element_by_id(self.btn_Next).click()
+
+    def clickPlaceOrder(self):
+        self.driver.find_element_by_id(self.btn_PlaceOrder).click()
+
+    def clickBadgeConfirmation(self):
+        self.driver.find_element_by_id(self.btn_BadgeOk).click()
+
+    def clickPointConfirmation(self):
+        self.driver.find_element_by_id(self.btn_PointsOk).click()

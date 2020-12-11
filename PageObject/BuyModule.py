@@ -27,6 +27,7 @@ class BuyMode:
     btn_gobacktoModuleDetail = "com.km.emotika:id/ivback"
     label_mycart="com.km.emotika:id/tvMyCart"
     screen_CardDetail="com.km.emotika:id/llCardDetail"
+    btn_collapse="com.km.emotika:id/tvExistingCard"
 
     def __init__(self,driver):
         self.driver = driver
@@ -41,7 +42,10 @@ class BuyMode:
         TouchAction(self.driver)   .press(x=41, y=1084)   .move_to(x=26, y=346)   .release()   .perform()
 
     def doScroll2(self):
-        TouchAction(self.driver).press(x=48, y=978).move_to(x=43, y=529).release().perform()
+        TouchAction(self.driver)   .press(x=406, y=1203)   .move_to(x=433, y=663)   .release()   .perform()
+
+    def clickCollapse(self):
+        self.driver.find_element_by_id(self.btn_collapse).click()
 
     def clickBack(self):
         self.driver.find_element_by_id(self.btn_gobacktoModuleDetail).click()

@@ -1,9 +1,10 @@
-
+from appium.webdriver.common.touch_action import TouchAction
 
 class BuyMode:
-    btn_AddtoCart="com.km.emotika:id/llAddToCart"
-    btn_Checkout="com.km.emotika:id/llCheckout"
-    btn_AddPayment="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.RelativeLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.TextView"
+    btn_AddtoCart="com.km.emotika:id/tvAddToCArt"
+    btn_Checkout="com.km.emotika:id/tvCheckout"
+    btn_CheckoutOverlay="com.km.emotika:id/llCheckout"
+    btn_AddPayment="com.km.emotika:id/tvName"
     txt_CardNo="com.km.emotika:id/et_card_number"
     txt_ExpiryDate="com.km.emotika:id/et_expiry"
     txt_CVC="com.km.emotika:id/et_cvc"
@@ -14,20 +15,45 @@ class BuyMode:
     txt_Region="com.km.emotika:id/etState"
     txt_City="com.km.emotika:id/etCity"
     btn_Next="com.km.emotika:id/tvNext"
+    btn_NextOverlay="com.km.emotika:id/llNext"
     btn_PlaceOrder="com.km.emotika:id/tvPlaceOrder"
     btn_BadgeOk="com.km.emotika:id/tvBtnText"
     btn_PointsOk="com.km.emotika:id/tvBtnText"
     btn_ViewRecommended="com.km.emotika:id/tvRecommendedSeeAll"
     btn_moduleselection="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.TextView"
+    txt_moduleSearch="com.km.emotika:id/etSearch"
+    view_BillingInfo="com.km.emotika:id/tvAddBillingInfo"
+    scrollView="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout"
+    btn_gobacktoModuleDetail = "com.km.emotika:id/ivback"
+    label_mycart="com.km.emotika:id/tvMyCart"
+    screen_CardDetail="com.km.emotika:id/llCardDetail"
 
     def __init__(self,driver):
         self.driver = driver
 
+    def clickCardDetail(self):
+        self.driver.find_element_by_id(self.screen_CardDetail).click()
+
+    def clickMyCart(self):
+        self.driver.find_element_by_id(self.label_mycart).click()
+
+    def doScroll(self):
+        TouchAction(self.driver)   .press(x=41, y=1084)   .move_to(x=26, y=346)   .release()   .perform()
+
+    def doScroll2(self):
+        TouchAction(self.driver).press(x=48, y=978).move_to(x=43, y=529).release().perform()
+
+    def clickBack(self):
+        self.driver.find_element_by_id(self.btn_gobacktoModuleDetail).click()
+
     def clickAddtoCart(self):
-        self.driver.find_element_by_xpath(self.btn_AddtoCart).click()
+        self.driver.find_element_by_id(self.btn_AddtoCart).click()
 
     def clickCheckOut(self):
         self.driver.find_element_by_id(self.btn_Checkout).click()
+
+    def clickCheckOutOverlay(self):
+        self.driver.find_element_by_id(self.btn_CheckoutOverlay).click()
 
     def clickAddPayment(self):
         self.driver.find_element_by_id(self.btn_AddPayment).click()
@@ -77,6 +103,10 @@ class BuyMode:
     def clickNext(self):
         self.driver.find_element_by_id(self.btn_Next).click()
 
+    def clickNextOverlay(self):
+        self.driver.find_element_by_id(self.btn_NextOverlay).click()
+
+
     def clickPlaceOrder(self):
         self.driver.find_element_by_id(self.btn_PlaceOrder).click()
 
@@ -85,3 +115,10 @@ class BuyMode:
 
     def clickPointConfirmation(self):
         self.driver.find_element_by_id(self.btn_PointsOk).click()
+
+    def SearchModule(self, Searchtxt):
+        self.driver.find_element_by_id(self.txt_moduleSearch).clear()
+        self.driver.find_element_by_id(self.txt_moduleSearch).send_keys(Searchtxt)
+
+    def ViewBillingInfo(self):
+        self.driver.find_element_by_id(self.view_BillingInfo).click()

@@ -1,5 +1,7 @@
 import random
 
+import pytest
+
 from PageObject.ActivationPage import Activation
 from PageObject.LoginPage import Login
 from Utilities.customeLogger import LogGen
@@ -71,7 +73,47 @@ class Test_001_Login:
     #     self.lp.clickLogout()
     #     self.lp.clickConfirmLogout()
 
-    def test_case2(self, setup):
+    # def test_case2(self, setup):
+    #     self.logger.info("********Test case1**********")
+    #     self.logger.info("********verify Sign**********")
+    #     self.driver = setup
+    #
+    #     self.Bm = BuyMode(self.driver)
+    #     self.logger.info("********Test case 2**********")
+    #     self.logger.info("********verify Sign**********")
+    #     self.driver = setup
+    #     self.lp = Login(self.driver)
+    #     self.lp.clickSkip()
+    #     self.lp.setSignInEmailaddress("automator257@mailinator.com")
+    #     self.lp.setSignInPassword("Admin@1234")
+    #     self.lp.clickSignIn()
+    #     self.Bm.ViewRecommended()
+    #     self.Bm.SearchModule("8000")
+    #
+    #     self.Bm.selectModule()
+    #     self.Bm.clickAddtoCart()
+    #     self.Bm.clickCheckOut()
+    #     self.Bm.clickCheckOutOverlay()
+    #     self.Bm.clickAddPayment()
+    #     self.Bm.setCardNo("4000000000003063")
+    #     self.Bm.setExpiryDate("1222")
+    #     self.Bm.setCVC("123")
+    #     self.Bm.setZipCode("74450")
+    #     self.Bm.setCardHolderName("Raheel")
+    #     self.Bm.setAddress("Test Address")
+    #     self.Bm.setCountry("PK")
+    #     self.Bm.setRegion("SDH")
+    #     self.Bm.setCity("KHI")
+    #     self.Bm.doScroll()
+    #     self.Bm.clickNext()
+    #     self.driver.find_element_by_id("com.km.emotika:id/czv_submit_button").click()
+    #     self.Bm.clickCollapse()
+    #     self.Bm.clickNext()
+    #     self.Bm.clickPlaceOrder()
+    #     self.Bm.clickBadgeConfirmation()
+    #     self.Bm.clickPointConfirmation()
+
+    def funclogin(self, setup):
         self.logger.info("********Test case1**********")
         self.logger.info("********verify Sign**********")
         self.driver = setup
@@ -82,18 +124,20 @@ class Test_001_Login:
         self.driver = setup
         self.lp = Login(self.driver)
         self.lp.clickSkip()
-        self.lp.setSignInEmailaddress("automator930@mailinator.com")
+        self.lp.setSignInEmailaddress("automator257@mailinator.com")
         self.lp.setSignInPassword("Admin@1234")
         self.lp.clickSignIn()
-        self.Bm.ViewRecommended()
-        self.Bm.SearchModule("8000")
+        self.lp.clickProfile()
+        self.lp.clickSettings()
+        self.driver.find_element_by_id("com.km.emotika:id/tvPaymentDetail").click()
+        self.driver.find_element_by_id("com.km.emotika:id/tvAddNew").click()
 
-        self.Bm.selectModule()
-        self.Bm.clickAddtoCart()
-        self.Bm.clickCheckOut()
-        self.Bm.clickCheckOutOverlay()
-        self.Bm.clickAddPayment()
-        self.Bm.setCardNo("4242424242424242")
+    @pytest.mark.test1
+    def test_case1(self,setup):
+        self.funclogin(setup)
+        # self.driver.find_element_by_id("com.km.emotika:id/tvPaymentDetail").click()
+        # self.driver.find_element_by_id("com.km.emotika:id/tvAddNew").click()
+        self.Bm.setCardNo("4000000000003246")
         self.Bm.setExpiryDate("1222")
         self.Bm.setCVC("123")
         self.Bm.setZipCode("74450")
@@ -102,11 +146,86 @@ class Test_001_Login:
         self.Bm.setCountry("PK")
         self.Bm.setRegion("SDH")
         self.Bm.setCity("KHI")
-        self.Bm.doScroll()
-        self.Bm.clickNext()
-        self.Bm.clickCollapse()
-        self.Bm.clickNext()
-        self.Bm.clickPlaceOrder()
-        self.Bm.clickBadgeConfirmation()
-        self.Bm.clickPointConfirmation()
+        self.driver.find_element_by_id("com.km.emotika:id/tvSave").click()
+        self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RadioGroup/android.widget.RadioButton[1]").click()
+        self.driver.find_element_by_id("com.km.emotika:id/czv_submit_button").click()
+        self.driver.find_element_by_id("com.km.emotika:id/llGoBackHome").click()
+        # self.Bm.ViewRecommended()
+        # self.Bm.SearchModule("8000")
+
+        # self.Bm.selectModule()
+        # self.Bm.clickAddtoCart()
+        # self.Bm.clickCheckOut()
+        # self.Bm.clickCheckOutOverlay()
+        # self.Bm.clickAddPayment()
+    @pytest.mark.test2
+    def test_case2(self,setup):
+        self.funclogin(setup)
+        self.Bm.setCardNo("4000000000003238")
+        self.Bm.setExpiryDate("1222")
+        self.Bm.setCVC("123")
+        self.Bm.setZipCode("74450")
+        self.Bm.setCardHolderName("Raheel")
+        self.Bm.setAddress("Test Address")
+        self.Bm.setCountry("PK")
+        self.Bm.setRegion("SDH")
+        self.Bm.setCity("KHI")
+        # self.Bm.doScroll()
+        # self.Bm.clickNext()
+        self.driver.find_element_by_id("com.km.emotika:id/czv_text_entry").send_keys("424242")
+        self.driver.find_element_by_id("com.km.emotika:id/czv_submit_button").click()
+        self.driver.find_element_by_id("com.km.emotika:id/llGoBackHome").click()
+        # self.Bm.clickCollapse()
+        # self.Bm.clickNext()
+        # self.Bm.clickPlaceOrder()
+        # self.Bm.clickBadgeConfirmation()
+        # self.Bm.clickPointConfirmation()
+
+    @pytest.mark.test3
+    def test_case3(self,setup):
+        self.funclogin(setup)
+        self.Bm.setCardNo("4000000000003253")
+        self.Bm.setExpiryDate("1222")
+        self.Bm.setCVC("123")
+        self.Bm.setZipCode("74450")
+        self.Bm.setCardHolderName("Raheel")
+        self.Bm.setAddress("Test Address")
+        self.Bm.setCountry("PK")
+        self.Bm.setRegion("SDH")
+        self.Bm.setCity("KHI")
+        # self.Bm.doScroll()
+        # self.Bm.clickNext()
+        self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.CheckBox[1]").click()
+        self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.CheckBox[2]").click()
+        self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.CheckBox[3]").click()
+        self.driver.find_element_by_id("com.km.emotika:id/czv_submit_button").click()
+        # self.driver.find_element_by_id("com.km.emotika:id/llGoBackHome").click()
+        # self.Bm.clickCollapse()
+        # self.Bm.clickNext()
+        # self.Bm.clickPlaceOrder()
+        # self.Bm.clickBadgeConfirmation()
+        # self.Bm.clickPointConfirmation()
+
+    @pytest.mark.test4
+    def test_case4(self,setup):
+        self.funclogin(setup)
+        self.Bm.setCardNo("4000000000003063")
+        self.Bm.setExpiryDate("1222")
+        self.Bm.setCVC("123")
+        self.Bm.setZipCode("74450")
+        self.Bm.setCardHolderName("Raheel")
+        self.Bm.setAddress("Test Address")
+        self.Bm.setCountry("PK")
+        self.Bm.setRegion("SDH")
+        self.Bm.setCity("KHI")
+        # self.Bm.doScroll()
+        # self.Bm.clickNext()
+        self.driver.find_element_by_id("com.km.emotika:id/czv_submit_button").click()
+        self.driver.find_element_by_id("com.km.emotika:id/llGoBackHome").click()
+        # self.Bm.clickCollapse()
+        # self.Bm.clickNext()
+        # self.Bm.clickPlaceOrder()
+        # self.Bm.clickBadgeConfirmation()
+        # self.Bm.clickPointConfirmation()
+
 

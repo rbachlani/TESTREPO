@@ -37,8 +37,6 @@ class Login:
 
 
 
-
-
     def __init__(self,driver):
         self.driver = driver
 
@@ -148,3 +146,6 @@ class Login:
 
     def ConfirmPoints(self):
         self.driver.find_element_by_id(self.btn_PointsConfirmation).click()
+
+    def ReturnHome(self):
+        self.driver.find_element_by_id(self.btn_gobackHome).click()

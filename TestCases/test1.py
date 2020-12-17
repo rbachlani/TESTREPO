@@ -124,7 +124,7 @@ class Test_001_Login:
         self.driver = setup
         self.lp = Login(self.driver)
         self.lp.clickSkip()
-        self.lp.setSignInEmailaddress("automator257@mailinator.com")
+        self.lp.setSignInEmailaddress("automator605@mailinator.com")
         self.lp.setSignInPassword("Admin@1234")
         self.lp.clickSignIn()
         self.lp.clickProfile()
@@ -228,4 +228,25 @@ class Test_001_Login:
         # self.Bm.clickBadgeConfirmation()
         # self.Bm.clickPointConfirmation()
 
+    @pytest.mark.test5
+    def test_case5(self,setup):
+        self.funclogin(setup)
+        self.Bm.setCardNo("4000000000003220")
+        self.Bm.setExpiryDate("1222")
+        self.Bm.setCVC("123")
+        self.Bm.setZipCode("74450")
+        self.Bm.setCardHolderName("Raheel")
+        self.Bm.setAddress("Test Address")
+        self.Bm.setCountry("PK")
+        self.Bm.setRegion("SDH")
+        self.Bm.setCity("KHI")
+        # self.Bm.doScroll()
+        # self.Bm.clickNext()
+        self.driver.find_element_by_id("com.km.emotika:id/czv_submit_button").click()
+        self.driver.find_element_by_id("com.km.emotika:id/llGoBackHome").click()
+        # self.Bm.clickCollapse()
+        # self.Bm.clickNext()
+        # self.Bm.clickPlaceOrder()
+        # self.Bm.clickBadgeConfirmation()
+        # self.Bm.clickPointConfirmation()
 

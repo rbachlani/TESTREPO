@@ -1,5 +1,5 @@
 import random
-
+import time
 import pytest
 
 from PageObject.ActivationPage import Activation
@@ -129,10 +129,12 @@ class Test_001_Login:
         self.lp.setSignInPassword("Admin@1234")
         self.lp.clickSignIn()
         self.lp.clickProfile()
+        time.sleep(3)
         self.lp.clickSettings()
         self.driver = setup
         self.Pp = Profile(self.driver)
         self.Pp.ViewPaymentDetails()
+        time.sleep(3)
         self.Pp.AddNewPayment()
 
 
@@ -149,9 +151,16 @@ class Test_001_Login:
         self.Bm.setRegion("SDH")
         self.Bm.setCity("KHI")
         self.Pp.SavePayment()
+        self.driver.implicitly_wait(30)
         self.Pp.SubmitRadioVisaProcess()
         self.Pp.SubmitVisaProcess()
+        self.driver.implicitly_wait(30)
         self.lp.ReturnHome()
+        if self.driver.find_element_by_id("com.km.emotika:id/rbProfile").is_displayed():
+            assert True
+
+        else:
+            assert False
 
     @pytest.mark.test2
     def test_case2(self,setup):
@@ -166,9 +175,20 @@ class Test_001_Login:
         self.Bm.setRegion("SDH")
         self.Bm.setCity("KHI")
         self.Pp.SavePayment()
+        time.sleep(5)
+        self.driver.implicitly_wait(30)
         self.Pp.settxtVisaProcess("424242")
+        time.sleep(5)
+        self.driver.implicitly_wait(30)
         self.Pp.SubmitVisaProcess()
+        time.sleep(5)
+        self.driver.implicitly_wait(30)
         self.lp.ReturnHome()
+        if self.driver.find_element_by_id("com.km.emotika:id/rbProfile").is_displayed():
+            assert True
+
+        else:
+            assert False
 
     @pytest.mark.test3
     def test_case3(self,setup):
@@ -183,11 +203,19 @@ class Test_001_Login:
         self.Bm.setRegion("SDH")
         self.Bm.setCity("KHI")
         self.Pp.SavePayment()
+        self.driver.implicitly_wait(30)
         self.Pp.SubmitChkBx1VisaProcess()
         self.Pp.SubmitChkBx2VisaProcess()
+        self.driver.implicitly_wait(30)
         self.Pp.SubmitChkBx3VisaProcess()
         self.Pp.SubmitVisaProcess()
+        self.driver.implicitly_wait(30)
         self.lp.ReturnHome()
+        if self.driver.find_element_by_id("com.km.emotika:id/rbProfile").is_displayed():
+            assert True
+
+        else:
+            assert False
 
     @pytest.mark.test4
     def test_case4(self,setup):
@@ -195,6 +223,7 @@ class Test_001_Login:
         self.Bm.setCardNo("4000000000003063")
         self.Bm.setExpiryDate("1222")
         self.Bm.setCVC("123")
+        self.driver.implicitly_wait(30)
         self.Bm.setZipCode("74450")
         self.Bm.setCardHolderName("Raheel")
         self.Bm.setAddress("Test Address")
@@ -202,7 +231,14 @@ class Test_001_Login:
         self.Bm.setRegion("SDH")
         self.Bm.setCity("KHI")
         self.Pp.SavePayment()
+        self.driver.implicitly_wait(30)
+        #self.Pp.SubmitVisaProcess()
         self.lp.ReturnHome()
+        if self.driver.find_element_by_id("com.km.emotika:id/rbProfile").is_displayed():
+            assert True
+
+        else:
+            assert False
 
     @pytest.mark.test5
     def test_case5(self,setup):
@@ -217,5 +253,13 @@ class Test_001_Login:
         self.Bm.setRegion("SDH")
         self.Bm.setCity("KHI")
         self.Pp.SavePayment()
+        self.driver.implicitly_wait(30)
         self.Pp.SubmitVisaProcess()
+        self.driver.implicitly_wait(30)
         self.lp.ReturnHome()
+
+        if self.driver.find_element_by_id("com.km.emotika:id/rbProfile").is_displayed():
+            assert True
+
+        else:
+            assert False

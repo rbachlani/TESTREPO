@@ -45,6 +45,46 @@ class Profile:
     def __init__(self,driver):
         self.driver = driver
 
+
+
+    def ClickOK(self):
+        self.driver.find_element_by_id(self.btn_ok).click()
+
+    def ClickConfirmPasswordChange(self):
+        self.driver.find_element_by_id(self.btn_ConfirmPasswordChange).click()
+
+    def setOldPassword(self, txtGivenValue):
+        self.driver.find_element_by_id(self.txt_OldPassword).clear()
+        self.driver.find_element_by_id(self.txt_OldPassword).send_keys(txtGivenValue)
+
+    def setNewPassword(self, txtGivenValue):
+        self.driver.find_element_by_id(self.txt_NewPassword).clear()
+        self.driver.find_element_by_id(self.txt_NewPassword).send_keys(txtGivenValue)
+
+    def setConfirmNewPassword(self, txtGivenValue):
+        self.driver.find_element_by_id(self.txt_ConfirmPassword).clear()
+        self.driver.find_element_by_id(self.txt_ConfirmPassword).send_keys(txtGivenValue)
+
+    def ClickChangePasswordSubMenu(self):
+        self.driver.find_element_by_id(self.SubMenu_ChangePassword).click()
+
+    def ClickNameSave(self):
+        self.driver.find_element_by_id(self.btn_Save).click()
+
+    def ClickAccountInfoMenu(self):
+        self.driver.find_element_by_id(self.menu_AccountInfo).click()
+
+    def ClickChangeNameSubMenu(self):
+        self.driver.find_element_by_id(self.SubMenu_ChangeName).click()
+
+    def setFirstName(self,txtValue):
+        self.driver.find_element_by_id(self.txt_FirstName).clear()
+        self.driver.find_element_by_id(self.txt_FirstName).send_keys(txtValue)
+
+    def setLastName(self,txtValue):
+        self.driver.find_element_by_id(self.txt_LastName).clear()
+        self.driver.find_element_by_id(self.txt_LastName).send_keys(txtValue)
+
     def settxtVisaProcess(self,txtCode):
         self.driver.find_element_by_id(self.txtbox_VisaProcess).clear()
         self.driver.find_element_by_id(self.txtbox_VisaProcess).send_keys(txtCode)

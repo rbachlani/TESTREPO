@@ -137,6 +137,22 @@ class Test_001_Login:
         time.sleep(3)
         self.Pp.AddNewPayment()
 
+    def ProfileLogin(self, setup):
+        self.logger.info("********Test case1**********")
+        self.logger.info("********verify Sign**********")
+        self.driver = setup
+        self.Bm = BuyMode(self.driver)
+        self.driver = setup
+        self.lp = Login(self.driver)
+        # self.lp = Login(self.driver)
+        # self.lp = Login(self.driver)
+        self.lp.clickSkip()
+        self.lp.setSignInEmailaddress("automator605@mailinator.com")
+        self.lp.setSignInPassword("Admin@1234")
+        self.lp.clickSignIn()
+        self.lp.clickProfile()
+        time.sleep(3)
+        self.lp.clickSettings()
 
     @pytest.mark.test1
     def test_case1(self,setup):
@@ -263,3 +279,21 @@ class Test_001_Login:
 
         else:
             assert False
+
+
+    @pytest.mark.test6
+    def test_case6(self,setup):
+        self.ProfileLogin(setup)
+        self.driver = setup
+        self.Pp = Profile(self.driver)
+        self.Pp.ClickAccountInfoMenu()
+        self.Pp.ClickChangeNameSubMenu()
+        self.Pp.setFirstName("Raheel")
+        self.Pp.setLastName("Bachlani")
+        self.Pp.ClickNameSave()
+        self.Pp.ClickChangePasswordSubMenu()
+        self.Pp.setOldPassword("Admin@1234")
+        self.Pp.setNewPassword("Admin@12345")
+        self.Pp.setConfirmNewPassword("Admin@12345")
+        self.Pp.ClickConfirmPasswordChange()
+        self.Pp.ClickOK()

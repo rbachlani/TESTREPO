@@ -46,6 +46,36 @@ class Profile:
         self.driver = driver
 
 
+    def ClickSendButton(self):
+        self.driver.find_element_by_id(self.btn_Send).click()
+
+    def setRecipientName(self, txtGivenValue):
+        self.driver.find_element_by_id(self.txt_RecipientsName).clear()
+        self.driver.find_element_by_id(self.txt_RecipientsName).send_keys(txtGivenValue)
+
+    def ClickSMSOption(self):
+        self.driver.find_element_by_xpath(self.btn_Sms).click()
+
+    def ClickShareButton(self):
+        self.driver.find_element_by_id(self.btn_Share).click()
+
+    def ClickOkButton(self):
+        self.driver.find_element_by_id(self.btn_ok).click()
+
+    def ClickCopyLink(self):
+        self.driver.find_element_by_id(self.btn_CopyLink).click()
+
+    def ClickInviteFriendMenu(self):
+        self.driver.find_element_by_id(self.Menu_FriendInvite).click()
+
+    def ClickGoBack(self):
+        self.driver.find_element_by_id(self.btn_goBack).click()
+
+    def ClickTransactionHistoryMenu(self):
+        self.driver.find_element_by_id(self.menu_TransactionHistory).click()
+
+    def FlipNotifications(self):
+        self.driver.find_element_by_id(self.btn_flipNotifications).click()
 
     def ClickOK(self):
         self.driver.find_element_by_id(self.btn_ok).click()

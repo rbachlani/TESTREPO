@@ -1,4 +1,4 @@
-from appium.webdriver.common.touch_action import TouchAction
+
 
 class BuyMode:
     btn_AddtoCart="com.km.emotika:id/tvAddToCArt"

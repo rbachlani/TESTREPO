@@ -1,4 +1,4 @@
-
+from appium.webdriver.common.touch_action import TouchAction
 
 
 
@@ -24,7 +24,8 @@ class Profile:
     txt_ConfirmPassword="com.km.emotika:id/etConfirmPassword"
     btn_ConfirmPasswordChange="com.km.emotika:id/tvConfirm"
     btn_flipNotifications="com.km.emotika:id/cbSetting"
-    menu_TransactionHistory="com.km.emotika:id/tvTransactionHistory"
+    menu_TransactionHistory="com.km.emotika:id/llTransactionHistory"
+    menu_TransactionHistory2 = "com.km.emotika:id/tvTransactionHistory"
     btn_goBack="com.km.emotika:id/ivback"
     Menu_TermsAndConditions="com.km.emotika:id/tvTermCondition"
     Menu_PrivacyPolicy="com.km.emotika:id/tvPrivacyPolicy"
@@ -33,8 +34,10 @@ class Profile:
     btn_CopyLink="com.km.emotika:id/tvCopyLink"
     btn_ok="com.km.emotika:id/tvOk"
     btn_Share="com.km.emotika:id/llShare"
-    btn_Sms="//hierarchy/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.LinearLayout[6]/android.widget.TextView[1]"
-    txt_RecipientsName="com.android.mms:id/compose_recipients_name"
+    btn_Sms="/hierarchy/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[4]/android.widget.LinearLayout/android.widget.ImageView"
+    txtbx_RecipientsNumber="com.android.mms:id/compose_recipients_name"
+    # txt_RecipientsNumber="//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.EditText[1]"
+    txt3="//android.widget.EditText[@content-desc=\"To\"]"
     btn_Send="com.android.mms:id/send_button"
     btn_Logout="com.km.emotika:id/tvLogout"
     btn_ContactUs="com.km.emotika:id/tvContactUs"
@@ -46,12 +49,16 @@ class Profile:
         self.driver = driver
 
 
+
     def ClickSendButton(self):
         self.driver.find_element_by_id(self.btn_Send).click()
 
-    def setRecipientName(self, txtGivenValue):
-        self.driver.find_element_by_id(self.txt_RecipientsName).clear()
-        self.driver.find_element_by_id(self.txt_RecipientsName).send_keys(txtGivenValue)
+    def setRecipientNumber(self, txtGivenValue):
+        self.driver.find_element_by_xpath(self.txt3).clear()
+        self.driver.find_element_by_xpath(self.txt3).send_keys(txtGivenValue)
+
+    def clickRecipientField(self):
+        self.driver.find_element_by_id(self.txtbx_RecipientsNumber).click()
 
     def ClickSMSOption(self):
         self.driver.find_element_by_xpath(self.btn_Sms).click()
@@ -70,6 +77,9 @@ class Profile:
 
     def ClickGoBack(self):
         self.driver.find_element_by_id(self.btn_goBack).click()
+
+    def ClickTransactionHistoryMenu2(self):
+        self.driver.find_element_by_id(self.menu_TransactionHistory2).click()
 
     def ClickTransactionHistoryMenu(self):
         self.driver.find_element_by_id(self.menu_TransactionHistory).click()

@@ -1,3 +1,5 @@
+from appium.webdriver.common.touch_action import TouchAction
+
 
 class Login:
     txt_signin_username="com.km.emotika:id/etEmailAddress"
@@ -40,6 +42,8 @@ class Login:
     def __init__(self,driver):
         self.driver = driver
 
+    def doScroll(self):
+        TouchAction(self.driver).press(x=487, y=631).move_to(x=460, y=2139).release().perform()
 
     def clickSkip(self):
         self.driver.find_element_by_xpath(self.button_skip_xpath).click()

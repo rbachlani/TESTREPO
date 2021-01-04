@@ -36,8 +36,7 @@ class Profile:
     btn_Share="com.km.emotika:id/llShare"
     btn_Sms="/hierarchy/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[4]/android.widget.LinearLayout/android.widget.ImageView"
     txtbx_RecipientsNumber="com.android.mms:id/compose_recipients_name"
-    # txt_RecipientsNumber="//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.EditText[1]"
-    txt3="//android.widget.EditText[@content-desc=\"To\"]"
+    txtnumberInput="//android.widget.EditText[@content-desc=\"To\"]"
     btn_Send="com.android.mms:id/send_button"
     btn_Logout="com.km.emotika:id/tvLogout"
     btn_ContactUs="com.km.emotika:id/tvContactUs"
@@ -48,14 +47,25 @@ class Profile:
     def __init__(self,driver):
         self.driver = driver
 
+    def CallAndroidBack(self):
+        self.driver.back()
+
+    def ScrollUpwards(self):
+        TouchAction(self.driver).press(x=487, y=2058).move_to(x=508, y=524).release().perform()
 
 
     def ClickSendButton(self):
         self.driver.find_element_by_id(self.btn_Send).click()
 
+    def ClickTermsAndConditionsMenu(self):
+        self.driver.find_element_by_id(self.Menu_TermsAndConditions).click()
+
+    def ClickPrivacyPolicyMenu(self):
+        self.driver.find_element_by_id(self.Menu_PrivacyPolicy).click()
+
     def setRecipientNumber(self, txtGivenValue):
-        self.driver.find_element_by_xpath(self.txt3).clear()
-        self.driver.find_element_by_xpath(self.txt3).send_keys(txtGivenValue)
+        self.driver.find_element_by_xpath(self.txtnumberInput).clear()
+        self.driver.find_element_by_xpath(self.txtnumberInput).send_keys(txtGivenValue)
 
     def clickRecipientField(self):
         self.driver.find_element_by_id(self.txtbx_RecipientsNumber).click()

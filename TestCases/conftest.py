@@ -12,7 +12,7 @@ def setup():
     driver = webdriver.Remote("http://localhost:4723/wd/hub",desired_cap)
     driver.implicitly_wait(50)
     return driver
-
+asdasd
 # #
 # @pytest.fixture()
 # def setupChrome():
